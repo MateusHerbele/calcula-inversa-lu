@@ -135,8 +135,6 @@ float** encontraInversa(float** matrizU, float** matrizL, float** matrizIdentida
     free(vetorY);
     free(vetorX);
     liberarMatriz(matrizL, ordem);
-    printf("Matriz Identidade:\n");
-    mostraMatriz(matrizIdentidade, ordem);
     liberarMatriz(matrizIdentidade, ordem);
     return matrizInversa;
 }

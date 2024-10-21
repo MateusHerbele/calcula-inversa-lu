@@ -19,7 +19,7 @@ int main() {
     float** matrizInv = NULL;
     // Lê o tamanho da matriz
     scanf("%d", &ordem);
-
+    printf("%d\n", ordem);
     // Aloca memória para a matriz
     matriz = criaMatriz(ordem);
     matrizCopia = criaMatriz(ordem);
@@ -39,7 +39,7 @@ int main() {
     tempoFinal = timestamp();
 
     calculaNormaL2(matrizCopia, matrizInv, ordem);
-    printf("tempo: %.8e\n", tempoFinal - tempoInicial);
+    printf("%.8e\n", tempoFinal - tempoInicial);
 
     // Libera a memória alocada
     for (int i = 0; i < ordem; i++) {

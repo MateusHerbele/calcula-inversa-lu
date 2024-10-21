@@ -23,10 +23,6 @@ float** subtraiMatrizes(float** matrizA, float** matrizB, int ordem){
 }
 
 void calculaNormaL2(float** matrizA, float** matrizInv, int ordem){
-    printf("Matriz A:\n");
-    mostraMatriz(matrizA, ordem);
-    printf("Matriz Inversa:\n");
-    mostraMatriz(matrizInv, ordem);
     float** matrizProduto = calculaMatrizProduto(matrizA, matrizInv, ordem);
     float** matrizIdentidade = criaMatrizIdentidade(ordem);
     float** matrizResiduo = subtraiMatrizes(matrizProduto, matrizIdentidade, ordem);
@@ -40,7 +36,7 @@ void calculaNormaL2(float** matrizA, float** matrizInv, int ordem){
         norma += sqrt(aux);
     }
     norma = norma/(ordem);
-    printf("norma: %.15e\n", norma);
+    printf("%.15e\n", norma);
     liberarMatriz(matrizProduto, ordem);
     liberarMatriz(matrizIdentidade, ordem);
     liberarMatriz(matrizResiduo, ordem);

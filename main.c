@@ -39,7 +39,7 @@ int main() {
     tempoFinal = timestamp();
 
     calculaNormaL2(matrizCopia, matrizInv, ordem);
-    printf("%.8e\n", tempoFinal - tempoInicial);
+    printf("tempo: %.8e\n", tempoFinal - tempoInicial);
 
     // Libera a memória alocada
     for (int i = 0; i < ordem; i++) {

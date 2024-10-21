@@ -26,19 +26,24 @@ float** criaMatrizIdentidade(int ordem){
 }
 
 float ** criaMatriz(int ordem){
-    float** matrizL = (float**)malloc(ordem * sizeof(float*));
-    if(matrizL == NULL){
+    float** matriz = (float**)malloc(ordem * sizeof(float*));
+    if(matriz == NULL){
         printf("Erro ao alocar memória para matriz\n");
         exit(1);
     }
     for(int i = 0; i < ordem; i++){
-        matrizL[i] = (float*)malloc(ordem * sizeof(float));
-        if(matrizL[i] == NULL){
+        matriz[i] = (float*)malloc(ordem * sizeof(float));
+        if(matriz[i] == NULL){
             printf("Erro ao alocar memória para matriz[%d]'\n", i);
             exit(1);
         }
     }
-    return matrizL;
+    for(int i = 0; i < ordem; i++){
+        for(int j = 0; j < ordem; j++){
+            matriz[i][j] = 0;
+        }
+    }
+    return matriz;
 }
 
 void liberarMatriz(float** matriz, int ordem){
@@ -130,6 +135,8 @@ float** encontraInversa(float** matrizU, float** matrizL, float** matrizIdentida
     free(vetorY);
     free(vetorX);
     liberarMatriz(matrizL, ordem);
+    printf("Matriz Identidade:\n");
+    mostraMatriz(matrizIdentidade, ordem);
     liberarMatriz(matrizIdentidade, ordem);
     return matrizInversa;
 }

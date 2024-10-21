@@ -7,8 +7,10 @@
 
 int main() {
     // Variáveis
+  
     LIKWID_MARKER_INIT;
     LIKWID_MARKER_START("main");
+  
     int ordem;
     rtime_t tempoInicial = 0;
     rtime_t tempoFinal = 0;
@@ -43,9 +45,11 @@ int main() {
     for (int i = 0; i < ordem; i++) {
         free(matriz[i]);
         free(matrizCopia[i]);
+        free(matrizInv[i]);
     }
     free(matriz);
     free(matrizCopia);
+    free(matrizInv);
 
     LIKWID_MARKER_STOP("main");
     LIKWID_MARKER_CLOSE;

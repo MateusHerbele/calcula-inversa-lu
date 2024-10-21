@@ -1,14 +1,13 @@
-# PROGRAMA
-    PROG = inversa
-    OBJS = main.o inversa.o utils.o normaL2.o
+# Programa
+PROG = inversa
+OBJS = main.o inversa.o utils.o normaL2.o
 
 # Compilador
-    CC     = gcc
+CC     = gcc
 
-# Acrescentar onde apropriado as opções para incluir uso da biblioteca LIKWID
-    CFLAGS = -O0 
-    LFLAGS = -lm
-	LIKWID = -DLIKWID_PERFMON -I/usr/local/include -L/usr/local/lib -llikwid
+# Opções de compilação
+CFLAGS = -O0 -DLIKWID_PERFMON -I/usr/local/include
+LFLAGS = -lm -L/usr/local/lib -llikwid
 
 # Lista de arquivos para distribuição. Acrescentar mais arquivos se necessário.
 DISTFILES = *.c *.h LEIAME* Makefile

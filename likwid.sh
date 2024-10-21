@@ -1,3 +1,3 @@
 #!/bin/bash
 
-likwid-perfctr -C 1 -g FLOPS_DP -m ./inversa
+likwid-perfctr -C 0 -g FLOPS_DP -m ./inversa 

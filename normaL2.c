@@ -35,4 +35,7 @@ void calculaNormaL2(float** matrizA, float** matrizInv, int ordem){
     norma = sqrt(norma);
     norma = norma/ordem;
     printf("%.15e\n", norma);
+    liberarMatriz(matrizProduto, ordem);
+    liberarMatriz(matrizIdentidade, ordem);
+    liberarMatriz(matrizResiduo, ordem);
 }

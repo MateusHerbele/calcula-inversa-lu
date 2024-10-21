@@ -10,6 +10,8 @@ float** criaMatrizIdentidade(int ordem);
 
 float ** criaMatriz(int ordem);
 
+void liberarMatriz(float** matriz, int ordem);
+
 void ajeitaMatrizL(float** matrizL, int ordem);
 
 float** calculaInversa(float** matriz, int ordem);

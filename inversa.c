@@ -41,6 +41,13 @@ float ** criaMatriz(int ordem){
     return matrizL;
 }
 
+void liberarMatriz(float** matriz, int ordem){
+    for(int i = 0; i < ordem; i++){
+        free(matriz[i]);
+    }
+    free(matriz);
+}
+
 void ajeitaMatrizL(float** matrizL, int ordem){
     for(int i = 0; i < ordem; i++){
         for(int j = 0; j < ordem; j++){
@@ -119,15 +126,11 @@ float** encontraInversa(float** matrizU, float** matrizL, float** matrizIdentida
             matrizInversa[j][i] = vetorX[j];
         }
     }
-    mostraMatriz(matrizInversa, ordem);float** criaCopiaMatriz(float** matriz, int ordem){
-    float** copiaMatriz = criaMatriz(ordem);
-    for(int i = 0; i < ordem; i++){
-        for(int j = 0; j < ordem; j++){
-            copiaMatriz[i][j] = matriz[i][j];
-        }
-    }
-    return copiaMatriz;
-}
+    mostraMatriz(matrizInversa, ordem);
+    free(vetorY);
+    free(vetorX);
+    liberarMatriz(matrizL, ordem);
+    liberarMatriz(matrizIdentidade, ordem);
     return matrizInversa;
 }
 

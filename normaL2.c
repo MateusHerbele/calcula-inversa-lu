@@ -1,7 +1,11 @@
+/*
+MATEUS DOS SANTOS HERBELE
+GRR20221254
+*/
 #include "normaL2.h"
 
-float** calculaMatrizProduto(float** matrizA, float**  matrizB, int ordem){
-    float** matrizProduto = criaMatriz(ordem);
+double** calculaMatrizProduto(double** matrizA, double**  matrizB, int ordem){
+    double** matrizProduto = criaMatriz(ordem);
     for(int i = 0; i < ordem; i++){
         for(int j = 0; j < ordem; j++){
             for(int k = 0; k < ordem; k++){
@@ -12,32 +16,33 @@ float** calculaMatrizProduto(float** matrizA, float**  matrizB, int ordem){
     return matrizProduto;
 }
 
-float** subtraiMatrizes(float** matrizA, float** matrizB, int ordem){
-    float** matrizSubtracao = criaMatriz(ordem);
+double** subtraiMatrizes(double** matriz, int ordem){
+    double** matrizSubtracao = criaMatriz(ordem);
     for(int i = 0; i < ordem; i++){
         for(int j = 0; j < ordem; j++){
-            matrizSubtracao[i][j] = matrizA[i][j] - matrizB[i][j];
+            if(j == i)
+                matrizSubtracao[i][j] = matriz[i][j] - 1.0;
+            else
+                matrizSubtracao[i][j] = matriz[i][j];
         }
     }
     return matrizSubtracao;
 }
 
-void calculaNormaL2(float** matrizA, float** matrizInv, int ordem){
-    float** matrizProduto = calculaMatrizProduto(matrizA, matrizInv, ordem);
-    float** matrizIdentidade = criaMatrizIdentidade(ordem);
-    float** matrizResiduo = subtraiMatrizes(matrizProduto, matrizIdentidade, ordem);
-    float norma = 0.0;
-    float aux = 0.0;
+void calculaNormaL2(double** matrizA, double** matrizInv, int ordem){
+    double** matrizResiduo = calculaMatrizProduto(matrizA, matrizInv, ordem);
+    matrizResiduo = subtraiMatrizes(matrizResiduo, ordem);
+    double norma = 0.0;
+    double aux = 0.0;
+
     for(int i = 0; i < ordem; i++){
+        for(int j = 0; j < ordem; j++)
+            aux += matrizResiduo[j][i] * matrizResiduo[j][i]; // Quadrado dos elementos do vetor
+        aux = sqrt(aux);
+        norma += aux;
         aux = 0.0;
-        for(int j = 0; j < ordem; j++){
-            aux += matrizResiduo[i][j] * matrizResiduo[i][j]; // Quadrado dos elementos do vetor
-        }
-        norma += sqrt(aux);
     }
-    norma = norma/(ordem);
+    norma = norma/ordem;
     printf("%.15e\n", norma);
-    liberarMatriz(matrizProduto, ordem);
-    liberarMatriz(matrizIdentidade, ordem);
     liberarMatriz(matrizResiduo, ordem);
 }

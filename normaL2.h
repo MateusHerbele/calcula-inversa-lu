@@ -1,3 +1,7 @@
+/*
+MATEUS DOS SANTOS HERBELE
+GRR20221254
+*/
 #ifndef __NORMAL2__
 #define __NORMAL2__
 
@@ -6,10 +10,10 @@
 #include <math.h>
 #include "inversa.h"
 
-float** calculaMatrizProduto(float** matrizA, float**  matrizB, int ordem);
+double** calculaMatrizProduto(double** matrizA, double**  matrizB, int ordem);
 
-float** subtraiMatrizes(float** matrizA, float** matrizB, int ordem);
+double** subtraiMatrizes(double** matriz, int ordem);
 
-void calculaNormaL2(float** matrizA, float** matrizInv, int ordem);
+void calculaNormaL2(double** matrizA, double** matrizInv, int ordem);
 
 #endif

@@ -1,29 +1,34 @@
+/*
+MATEUS DOS SANTOS HERBELE
+GRR20221254
+*/
 #ifndef __INVERSA__
 #define __INVERSA__
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "utils.h"
 
-void mostraMatriz(float** matriz, int ordem);
+void mostraMatriz(double** matriz, int ordem);
 
-float** criaMatrizIdentidade(int ordem);
+double** criaMatrizIdentidade(int ordem);
 
-float ** criaMatriz(int ordem);
+double ** criaMatriz(int ordem);
 
-void liberarMatriz(float** matriz, int ordem);
+void liberarMatriz(double** matriz, int ordem);
 
-void ajeitaMatrizL(float** matrizL, int ordem);
+void ajeitaMatrizL(double** matrizL, int ordem);
 
-float** calculaInversa(float** matriz, int ordem);
+double** calculaInversa(double** matriz, int ordem);
 
-void trocaLinhas(float** matriz, float** matrizIdentidade, float** matrizL, int ordem, int linha1, int linha2);
+void trocaLinhas(double** matriz, double** matrizIdentidade, double** matrizL, int ordem, int linha1, int linha2);
 
-void pivoteamentoParcial(float** matriz, float** matrizIdentidade, float** matrizL, int ordem, int apartirDe);
+void pivoteamentoParcial(double** matriz, double** matrizIdentidade, double** matrizL, int ordem, int apartirDe);
 // encontrar melhor nome pra essa função de baixo
-float** encontraInversa(float** matrizU, float** matrizL, float** matrizIdentidade, int ordem);
+double** encontraInversa(double** matrizU, double** matrizL, double** matrizIdentidade, int ordem);
 
-void retroSubstituicao(float** matriz, float* igualdades, float* vetorResultado, int ordem);
+void retroSubstituicao(double** matriz, double* igualdades, double* vetorResultado, int ordem);
 
-void invRetroSubstituicao(float** matriz, float* igualdades, float* vetorResultado, int ordem);
+void invRetroSubstituicao(double** matriz, double* igualdades, double* vetorResultado, int ordem);
 
 #endif

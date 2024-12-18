@@ -1,6 +1,6 @@
 # Programa
 PROG = inversa
-OBJS = main.o inversa.o utils.o normaL2.o
+OBJS = inversa.o calculaInversa.o utils.o normaL2.o
 
 # Compilador
 CC     = gcc

@@ -8,7 +8,7 @@ GRR20221254
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "inversa.h"
+#include "calculaInversa.h"
 
 double** calculaMatrizProduto(double** matrizA, double**  matrizB, int ordem);
 

@@ -14,8 +14,10 @@ FP_ARITH_INST=$(cat $OUTPUT_TEMP | grep -E "FP_ARITH_INST_RETIRED_SCALAR_DOUBLE"
 DP_MFLOPS=$(cat $OUTPUT_TEMP | grep -E "DP \[MFLOP/s\]" | awk -F, '{print $2}')
 
 # Exibe as informações
+{
 echo "FP_ARITH_INST_RETIRED_SCALAR_DOUBLE, $FP_ARITH_INST"
-echo "DP [MFLOP/s]: $DP_MFLOPS"
+echo "DP [MFLOP/s], $DP_MFLOPS"
+}| grep -v '^0$'
 
 # Remove o arquivo temporário
 rm temp.txt

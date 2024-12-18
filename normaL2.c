@@ -4,7 +4,13 @@ GRR20221254
 */
 #include "normaL2.h"
 
-double** calculaMatrizProduto(double** matrizA, double**  matrizB, int ordem){
+/*
+matrizA = Matriz original do imput
+matrizB = Matriz inversa calculada anteiormente
+ordem = Ordem das matrizes
+Função: Calcula o produto entre duas matrizes
+*/
+double** calculaMatrizProduto(double** matrizA, double** matrizB, int ordem){
     double** matrizProduto = criaMatriz(ordem);
     for(int i = 0; i < ordem; i++){
         for(int j = 0; j < ordem; j++){
@@ -16,6 +22,11 @@ double** calculaMatrizProduto(double** matrizA, double**  matrizB, int ordem){
     return matrizProduto;
 }
 
+/*
+matriz = Matriz a ser subtraída
+ordem = Ordem da matriz
+Função: Subtrai 1 da diagonal principal da matriz, pois considera a subtração da matriz identidade
+*/
 double** subtraiMatrizes(double** matriz, int ordem){
     double** matrizSubtracao = criaMatriz(ordem);
     for(int i = 0; i < ordem; i++){
@@ -28,6 +39,13 @@ double** subtraiMatrizes(double** matriz, int ordem){
     }
     return matrizSubtracao;
 }
+
+/*
+matrizA = Matriz original do input
+matrizInv = Matriz inversa calculada anteriormente
+ordem = Ordem das matrizes
+Função: Calcula a norma L2 da matriz
+*/
 
 void calculaNormaL2(double** matrizA, double** matrizInv, int ordem){
     double** matrizResiduo = calculaMatrizProduto(matrizA, matrizInv, ordem);
